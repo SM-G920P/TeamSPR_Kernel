@@ -1,6 +1,9 @@
 CFLAGS_dm_cpu_hotplug.o := $(KBUILD_CFLAGS) -Wno-declaration-after-statement
 CFLAGS_cpufreq_ktoonservative.o := $(KBUILD_CFLAGS) -Wno-unused-variable
 
+# Enable Strict Aliasing Optimizations
+CFLAGS_KERNEL += -fstrict-aliasing
+
 # CPUfreq core
 obj-$(CONFIG_CPU_FREQ)			+= cpufreq.o cpu_load_metric.o cpufreq_kt.o
 # CPUfreq stats
