@@ -15,6 +15,11 @@
 
 #include "ssp_iio.h"
 
+#include <linux/moduleparam.h>
+
+static int wl_ssp = 3;
+module_param(wl_ssp, int, 0644);
+
 static void init_sensorlist(struct ssp_data *data)
 {
 	char name[SENSOR_MAX][SENSOR_NAME_MAX_LEN] = SENSOR_NAME;
@@ -143,10 +148,9 @@ void report_sensordata(struct ssp_data *data, int sensor,
 			(char *)&data->buf[sensor], data->report_len[sensor]);
 
 	/* wake-up sensor */
-	if (sensor == PROXIMITY_SENSOR ||
-		sensor == SIG_MOTION_SENSOR ||
-		sensor == TILT_DETECTOR) {
-		wake_lock_timeout(&data->ssp_wake_lock, 3 * HZ);
+	if (sensor == PROXIMITY_SENSOR || sensor == SIG_MOTION_SENSOR
+		|| sensor == TILT_DETECTOR || sensor == PICKUP_GESTURE) {
+		wake_lock_timeout(&data->ssp_wake_lock, wl_ssp * HZ);
 	}
 }
 
