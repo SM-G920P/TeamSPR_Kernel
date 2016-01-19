@@ -125,9 +125,11 @@ for i in $(find "$KERNELDIR" -name '*.ko'); do
 	cp -av "$i" ./$BK/$TARGET/ramdisk/lib/modules/;
 done;
 
+if [ -f "./$BK/$TARGET/ramdisk/lib/modules/*" ]; then
 chmod 755 ./$BK/$TARGET/ramdisk/lib/modules/*
 ${CROSS_COMPILE}strip --strip-debug ./$BK/$TARGET/ramdisk/lib/modules/*.ko
 ${CROSS_COMPILE}strip --strip-unneeded ./$BK/$TARGET/ramdisk/lib/modules/*
+fi;
 
 
 # fix ramdisk permissions
