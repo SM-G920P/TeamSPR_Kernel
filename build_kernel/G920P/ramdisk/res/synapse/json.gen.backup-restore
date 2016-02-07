@@ -10,8 +10,9 @@ cat << CTAG
 	}},
 	{ SGeneric:{
 		title:"Profile Name",
+		description:"",
 		default:"None",
-		action:"backup /res/synapse/TeamSPR/bck_prof",
+		action:"backup /res/synapse/SkyHigh/bck_prof",
 	}},
 	{ SSpacer:{
 		height:1
@@ -29,7 +30,7 @@ cat << CTAG
 			{
 				on:APPLY,
 				do:[ REFRESH, APPLY ],
-				to:"backup /res/synapse/TeamSPR/bck_prof"
+				to:"backup /res/synapse/SkyHigh/bck_prof"
 			}
 		]
 	}},
@@ -38,7 +39,7 @@ cat << CTAG
 	}},
 	{ SOptionList:{
 		title:"Selected Profile",
-		description:" Choose the settings you want and [APPLY] your choice in Synapse before using the action buttons below.",
+		description:" Choose the settings you want and [APPLY] your choice in Synapse before using the action buttons below.\n",
 		action:"restorebackup pickconfig",
 		default:"None",
 		values:[ "None",
@@ -50,7 +51,7 @@ cat << CTAG
 			{
 				on:APPLY,
 				do:[ REFRESH, APPLY ],
-				to:"backup /res/synapse/TeamSPR/bck_prof"
+				to:"backup /res/synapse/SkyHigh/bck_prof"
 			}
 		]
 	}},
@@ -99,8 +100,9 @@ cat << CTAG
 	}},
 	{ SGeneric:{
 		title:"Kernel Name",
+		description:"",
 		default:"None",
-		action:"backup /res/synapse/TeamSPR/bck_kernel",
+		action:"backup /res/synapse/SkyHigh/bck_kernel",
 	}},
 	{ SSpacer:{
 		height:1
@@ -118,7 +120,7 @@ cat << CTAG
 			{
 				on:APPLY,
 				do:[ REFRESH, APPLY ],
-				to:"backup /res/synapse/TeamSPR/bck_kernel"
+				to:"backup /res/synapse/SkyHigh/bck_kernel"
 			}
 		]
 	}},
@@ -127,7 +129,7 @@ cat << CTAG
 	}},
 	{ SOptionList:{
 		title:"Selected Image",
-		description:" Choose the settings you want and [APPLY] your choice in Synapse before using the action buttons below.",
+		description:" Choose the settings you want and [APPLY] your choice in Synapse before using the action buttons below.\n",
 		action:"restorebackup pickboot",
        		default:"None",
 		values:[ "None",
