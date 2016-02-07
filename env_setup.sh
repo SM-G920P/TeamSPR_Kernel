@@ -65,7 +65,7 @@ export USER=`whoami`;
 export TMPFILE=`mktemp -t`;
 
 # system compiler
-export CROSS_COMPILE=/home/buildserver/android/toolchains/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android-
+export CROSS_COMPILE=~/android/toolchains/gcc-linaro-4.9-2015.02-3-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 
 # CPU Core
 export NUMBEROFCPUS=`grep 'processor' /proc/cpuinfo | wc -l`;
