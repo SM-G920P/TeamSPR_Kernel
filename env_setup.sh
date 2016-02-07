@@ -64,6 +64,8 @@ BK=build_kernel
 export KCONFIG_NOTIMESTAMP=true
 export ARCH=arm64;
 export SUB_ARCH=arm64;
+
+# SM-G920P
 if [ "$TARGET" = "G920P" ] ; then
 export KERNEL_CONFIG="TeamSPR_defconfig";
 fi
