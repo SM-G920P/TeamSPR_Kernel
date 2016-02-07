@@ -6,7 +6,7 @@ cat << CTAG
     elements:[
 	{ SPane:{
 		title:"Kernel Build by",
-		description:"<a href='http://forum.xda-developers.com/member.php?u=3511708'>UpInTheAir</a>."
+		description:"<a href='http://forum.xda-developers.com/member.php?u=5184047'>tvm2487</a>."
 	}},
 	{ SSpacer:{
 		height:1
@@ -27,7 +27,7 @@ cat << CTAG
 	}},
 	{ SPane:{
 		title:"Source",
-		description:"Modified & compiled from Samsung OSRC: <a href='https://G920P/TeamSPR_Kernel'>GitHub</a>."
+		description:"Modified & compiled from Samsung OSRC: <a href='https://github.com/SM-G920P/TeamSPR_Kernel'>GitHub</a>."
 	}},
 	{ SSpacer:{
 		height:1

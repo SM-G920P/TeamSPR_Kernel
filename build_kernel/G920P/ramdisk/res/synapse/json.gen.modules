@@ -11,7 +11,7 @@ cat << CTAG
 	{ SSpacer:{
 		height:1
 	}},
-        { SLiveLabel:{
+	{ SLiveLabel:{
 		title:"Loaded modules",
 		refresh:1000,
 		action:"live Live_modules"
