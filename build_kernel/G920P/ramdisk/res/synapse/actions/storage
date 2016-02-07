@@ -3,9 +3,10 @@
 
 BB=/sbin/busybox;
 
+$BB mount -t rootfs -o remount,rw rootfs;
+
 case $1 in
 usb_mode)
-  $BB mount -t rootfs -o remount,rw rootfs;
   P=/res/synapse/TeamSPR/mass_storage
   if [ ! -z $2 ]; then
   if [ $2 == DEFAULT ]; then
@@ -71,7 +72,8 @@ usb_mode)
     echo DEFAULT
   elif [ $copy == 4 ]; then
     echo DEFAULT
-  $BB mount -t rootfs -o remount,ro rootfs;
   fi
   ;;
 esac
+
+$BB mount -t rootfs -o remount,ro rootfs;

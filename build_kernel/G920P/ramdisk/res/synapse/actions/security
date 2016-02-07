@@ -3,6 +3,8 @@
 
 BB=/sbin/busybox;
 
+$BB mount -t rootfs -o remount,rw rootfs;
+
 case $1 in
 knox_security)
   $BB mount -t rootfs -o remount,rw rootfs;
@@ -115,3 +117,5 @@ knox_security)
   fi
   ;;
 esac
+
+$BB mount -t rootfs -o remount,ro rootfs;
