@@ -3,6 +3,8 @@
 
 BB=/sbin/busybox;
 
+$BB mount -t rootfs -o remount,rw rootfs;
+
 if [ -d /data/data/com.af.synapse ]; then
   SYNAPSE_SD_DIR=/sdcard/TeamSPR/Synapse;
   SYNAPSE_BOOT_DIR=$SYNAPSE_SD_DIR/kernel_backups;
@@ -23,8 +25,6 @@ reset_uci() {
   /res/synapse/uci reset;
   /res/synapse/uci;
 }
-
-$BB mount -t rootfs -o remount,rw rootfs;
 
 case "$1" in
 	listboot)
