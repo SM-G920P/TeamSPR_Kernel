@@ -98,6 +98,18 @@ cat << CTAG
 	{ SSpacer:{
 		   height:1
 	}},
+        { SDescription:{
+		description:" ** Note: You MUST suspend and resume display for changes to take effect!"
+	}},
+	{ SSpacer:{
+		   height:1
+	}},
+	{ SDescription:{
+		description:" 0 = use access point's default value.\n 1:1 = every time (as fast as possible).\n 1:2 = every other one."
+	}},
+	{ SSpacer:{
+		   height:1
+	}},
         { SSeekBar:{
        		title:"WiFi DTIM Interval While Screen-ON",
 		description:" Sets the ratio of how many DTIMs the driver will skip while the screen is ON.\n",
