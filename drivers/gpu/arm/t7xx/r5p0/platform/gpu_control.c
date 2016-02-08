@@ -18,7 +18,6 @@
 #include <mali_kbase.h>
 
 #include <linux/pm_qos.h>
-#include <linux/cpufreq_kt.h>
 #include <mach/pm_domains.h>
 
 #include "mali_kbase_platform.h"
@@ -28,9 +27,10 @@
 static struct kbase_device *GBLkbdev;
 static struct gpu_control_ops *ctr_ops;
 
-unsigned int gpu_min_override = 266;
-unsigned int gpu_max_override = 700;
+unsigned int gpu_min_override = 100;
+unsigned int gpu_max_override = 852;
 unsigned int gpu_max_override_screen_off = 0;
+extern bool screen_on;
 unsigned int cur_gpu_step = 0;
 int boost_level = -1;
 
@@ -143,7 +143,7 @@ int gpu_control_set_clock(struct kbase_device *kbdev, int clock)
 	// Check for Min/Max override
 	if (clock < gpu_min_override)
 		clock = gpu_min_override;
-	if (screen_is_on || gpu_max_override_screen_off == 0)
+	if (screen_on || gpu_max_override_screen_off == 0)
 	{
 		if (clock > gpu_max_override)
 			clock = gpu_max_override;
