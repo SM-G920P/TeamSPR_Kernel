@@ -416,7 +416,7 @@ KBUILD_CFLAGS   := -w -Wstrict-prototypes -Wno-trigraphs \
 		   -fweb -ftree-loop-im -ftree-loop-ivcanon \
 		   -fno-delete-null-pointer-checks -fsingle-precision-constant \
 		   -fmodulo-sched -fmodulo-sched-allow-regmoves \
-		   -fdiagnostics-show-option
+		   -fdiagnostics-show-option -std=gnu89
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
