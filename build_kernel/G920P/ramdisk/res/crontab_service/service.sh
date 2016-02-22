@@ -2,7 +2,6 @@
 
 # Created By Dorimanx and Dairinin
 # Modified by UpInTheAir for SkyHigh kernel & Synapse
-# Modified by tvm2487 for TeamSPR kernels & Synapse
 
 BB=/sbin/busybox;
 

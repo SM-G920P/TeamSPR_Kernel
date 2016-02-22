@@ -1,5 +1,4 @@
 # Modified from original apb_axel & neobuddy89 implementations by UpInTheAir@XDA for SkyHigh kernels
-# Modified by tvm2487 for TeamSPR kernels & Synapse
 
 BB=/sbin/busybox;
 

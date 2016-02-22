@@ -1,128 +1,88 @@
-#!/system/bin/sh
-# Script make by friedrich420
+#!/sbin/busybox sh
 
 cat << CTAG
 {
-    name:LED-CONTROL,
+    name:LED,
     elements:[
 	{ SPane:{
-		title:"Brightness in High Brightness Environments"
+		title:"LED"
 	}},
-	{ SSeekBar:{
-		description:"Set the relative intensity of the LED when in bright environments. Default is 40.",
-		min:0,
-		max:255,
-		step:5,
-		default:`cat /sys/class/sec/led/led_highpower_current`,
-		action:"generic /sys/class/sec/led/led_highpower_current"
+	{ SOptionList:{
+		title:"Enable LED Notifications",
+		description:"Enable or disable all LED notifications ! Default is Enabled.\n",
+		default:0,
+		action:"generic /sys/class/sec/led/led_always_disable",
+		values:{
+			0:"Enabled", 1:"Disable"
+		}
 	}},
-	{ SPane:{
-		title:"Brightness in Low Brightness Environments"
-	}},
-	{ SSeekBar:{
-		description:"Set the relative intensity of the LED when in low brightness environments. Default is 5.",
-		min:0,
-		max:255,
-		step:5,
-		default:`cat /sys/class/sec/led/led_lowpower_current`,
-		action:"generic /sys/class/sec/led/led_lowpower_current"
-	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SPane:{
-		title:"LED notification delay"
+		title:"LED Fade-in/out time period",
+		description:"Control LED fade-in/out time period for missed notifications.",
 	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
-	{ SSeekBar:{
-		title:"Delay ON",
-		description:" Divider for delay on.\n (0 = no on time / 0.5 = default).\n",
-		unit:" sec",
-		weight:0.001,
-		min:0,
-		max:10000,
-		step:500,
-		default:`cat /sys/class/sec/led/led_notification_delay_on`,
-		action:"generic /sys/class/sec/led/led_notification_delay_on"
+	{ SOptionList:{
+		title:"LED Fade Control",
+		description:"Default is Disabled.\n",
+		default:0,
+		action:"generic /sys/class/sec/led/led_fade",
+		values:{
+			0:"Disabled", 1:"Enabled"
+		}
 	}},
-	{ SDescription:{
-		description:" "
-	}},
-	{ SSeekBar:{
-		title:"Delay OFF",
-		description:" Divider for delay off.\n (0 = no off time / 5 = default).\n",
-		unit:" sec",
-		weight:0.001,
-		min:0,
-		max:10000,
-		step:500,
-		default:`cat /sys/class/sec/led/led_notification_delay_off`,
-		action:"generic /sys/class/sec/led/led_notification_delay_off"
-	}},
-	{ SDescription:{
-		description:" "
-	}},
-	{ SPane:{
-		title:"Fade-in/out (ramp) time period"
-	}},
-	{ SDescription:{
-		description:" "
-	}},
-        { SCheckBox:{
-                description:" Enable or disable LED fade-in/out (ramp) control. Default is Disabled.\n",
-                label:"Ramp control",
-		action:"generic /sys/class/sec/led/led_notification_ramp_control"
-	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SSeekBar:{
 		title:"Fade-in",
-		description:" Sets the time period of the rising slope.\n (0 = no ramp time / 800 = default).\n",
+		description:"Sets the time period of the rising slope. Default is 800.\n",
 		unit:" ms",
-		min:0,
+		min:100,
 		max:2000,
 		step:100,
-		default:`cat /sys/class/sec/led/led_notification_ramp_up`,
-		action:"generic /sys/class/sec/led/led_notification_ramp_up"
+		default:$(cat /sys/class/sec/led/led_fade_time_up),
+		action:"generic /sys/class/sec/led/led_fade_time_up"
 	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SSeekBar:{
 		title:"Fade-out",
-		description:" Sets the time period of the falling slope.\n (0 = no ramp time / 1000 = default).\n",
+		description:"Sets the time period of the falling slope. Default is 800.\n",
 		unit:" ms",
-		min:0,
+		min:100,
 		max:2000,
 		step:100,
-		default:`cat /sys/class/sec/led/led_notification_ramp_down`,
-		action:"generic /sys/class/sec/led/led_notification_ramp_down"
+		default:$(cat /sys/class/sec/led/led_fade_time_down),
+		action:"generic /sys/class/sec/led/led_fade_time_down"
 	}},
-	{ SDescription:{
-		  description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SPane:{
 		title:"Test"
 	}},
-	{ SDescription:{
-		  description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SButton:{
 		label:"Test Notification",
 		action:"led 3"
 	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
 	{ SButton:{
 		label:"Stop Notification",
 		action:"led 0"
 	}},
-	{ SDescription:{
-		description:" "
+	{ SSpacer:{
+		height:1
 	}},
     ]
 }

@@ -2,7 +2,6 @@
 
 # Fuel guage reset script
 # by UpInTheAir for SkyHigh kernels & Synapse
-# Modified by tvm2487 for TeamSPR kernels & Synapse
 
 BB=/sbin/busybox;
 P=/res/synapse/TeamSPR/cron_fg;

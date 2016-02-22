@@ -1,5 +1,4 @@
 # By UpInTheAir for SkyHigh SM-N915S kernels
-# Modified by tvm2487 for TeamSPR kernels & Synapse
 
 BB=/sbin/busybox;
 
