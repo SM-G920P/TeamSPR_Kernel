@@ -411,15 +411,17 @@ LINUXINCLUDE    := \
 
 KBUILD_CPPFLAGS := -D__KERNEL__
 
-KBUILD_CFLAGS   := -w -Wstrict-prototypes -Wno-trigraphs \
+KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
-		   -fivopts -funswitch-loops -fpredictive-commoning \
-		   -Werror-implicit-function-declaration -funsafe-loop-optimizations \
-		   -Wno-format-security -pipe -fno-pic \
-		   -fweb -ftree-loop-im -ftree-loop-ivcanon \
-		   -fno-delete-null-pointer-checks -fsingle-precision-constant \
-		   -fmodulo-sched -fmodulo-sched-allow-regmoves \
-		   -fdiagnostics-show-option -std=gnu89
+		   -Werror-implicit-function-declaration \
+		   -Wno-format-security \
+		   -fno-delete-null-pointer-checks \
+		   -fdiagnostics-show-option -Werror \
+		   -pipe -fno-pic -O2 \
+		   -mcpu=cortex-a57.cortex-a53 \
+		   -march=armv8-a+crc \
+		   -mtune=cortex-a57.cortex-a53 \
+		   -std=gnu89 -Wno-unused-function
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
