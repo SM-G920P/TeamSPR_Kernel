@@ -76,7 +76,7 @@ export TMPFILE=`mktemp -t`;
 
 
 # system compiler
-export CROSS_COMPILE=~/android/toolchains/gcc-linaro-4.9-2015.02-3-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=~/android/toolchains/aarch64-linux-android-5.3-kernel/bin/aarch64-linux-android-
 
 
 # CPU Core
